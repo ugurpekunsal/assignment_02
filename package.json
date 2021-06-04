@@ -1,6 +1,11 @@
 {
   "name": "assignment01",
   "version": "0.1",
+  "description": "Assignment 1 for COMP 229",
+  "main": "index.js",
+  "repository": "https://github.com/ugurpekunsal/assignment_01",
+  "author": "Ugur Pekunsal <upekunsa@my.centennialcollege.ca>",
+  "license": "MIT",
   "scripts": {
     "start": "node index.js"
   },
