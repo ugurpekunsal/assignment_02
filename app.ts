@@ -4,8 +4,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
-let indexRouter = require("./routes/index");
-let usersRouter = require("./routes/users");
+import indexRouter from "./routes/index";
 
 const app = express();
 export default app; // exports app as the default Object for this module
@@ -18,10 +17,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, "node_modules")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
