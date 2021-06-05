@@ -1,4 +1,4 @@
-/* your custom css goes here */
+/* Assignment_01 - Ugur Pekunsal - 301158229 - 6/4/2021 */
 #bootstrap-overrides {
   border: none;
   height: 0.5rem;
@@ -81,4 +81,16 @@ a {
 
 #about-me-content p {
   padding-top: 5rem;
+}
+
+.contact-square {
+  margin-top: 5rem;
+}
+
+.form {
+  max-width: 70%;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  margin-left: auto;
+  margin-right: auto;
 }
