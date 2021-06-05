@@ -1,1 +1,45 @@
 /* your custom css goes here */
+#bootstrap-overrides {
+  border: none;
+  height: 0.5rem;
+}
+
+.col * {
+  text-align: center;
+}
+
+#about-col {
+  background-image: url(../assets/img/about-background.jpg);
+}
+
+#projects-col {
+  background-image: url(../assets/img/projects-background.jpeg);
+}
+
+#services-col {
+  background-image: url(../assets/img/services-background.gif);
+}
+
+#contact-col {
+  background-image: url(../assets/img/contact-background.jpg);
+}
+
+.little-square {
+  border-radius: 3rem;
+  margin: 2rem;
+  height: 30rem;
+  background-size: cover;
+  background-color: #cccccc;
+}
+
+.little-square-text {
+  margin-top: 18rem;
+  font-size: large;
+  background-color: #ffffffb4;
+  border-radius: 2.5rem;
+  height: 7rem;
+}
+
+.little-square-text p {
+  padding: 0.2rem;
+}
