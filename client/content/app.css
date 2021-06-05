@@ -24,6 +24,22 @@
   background-image: url(../assets/img/contact-background.jpg);
 }
 
+#pknsl-image {
+  background-image: url(../assets/img/pknsl-image.PNG);
+}
+
+#homepage-simplifier-image {
+  background-image: url(../assets/img/homepage-simplifier.PNG);
+}
+
+#custom-laptop-lid-image {
+  background-image: url(../assets/img/custom-laptop-lid.jpg);
+}
+
+#future-projects-image {
+  background-image: url(../assets/img/future-projects.jpeg);
+}
+
 .little-square {
   border-radius: 3rem;
   margin: 2rem;
@@ -43,6 +59,10 @@
 .little-square-text:hover {
   background-color: #8cc7a0;
   color: initial;
+}
+
+.no-hover:hover {
+  background: none;
 }
 
 .little-square-text p {
