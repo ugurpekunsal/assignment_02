@@ -40,6 +40,25 @@
   height: 7rem;
 }
 
+.little-square-text:hover {
+  background-color: #8cc7a0;
+  color: initial;
+}
+
 .little-square-text p {
   padding: 0.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+#about-me-content img {
+  max-height: 20rem;
+  width: auto;
+}
+
+#about-me-content p {
+  padding-top: 5rem;
 }
