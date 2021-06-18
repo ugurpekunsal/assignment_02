@@ -8,7 +8,7 @@ import logger from "morgan";
 import mongoose from "mongoose";
 
 import indexRouter from "../routes/index";
-import contactsRouter from "../routes/contacts";
+import contactRouter from "../routes/contact";
 
 // App Configuration
 const app = express();
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 // Routing happens now
 app.use("/", indexRouter);
-app.use("/contacts-list", contactsRouter); // defines a new area of our website called contacts-list
+app.use("/contact-list", contactRouter); // defines a new area of our website called contact-list
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
