@@ -8,4 +8,5 @@ const router = express_1.default.Router();
 exports.default = router;
 const contacts_1 = require("../controllers/contacts");
 router.get("/", contacts_1.DisplayContactsListPage);
+router.get("/edit/:id", contacts_1.DisplayEditPage);
 //# sourceMappingURL=contacts.js.map
