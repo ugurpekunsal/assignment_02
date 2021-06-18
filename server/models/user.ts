@@ -8,7 +8,7 @@ const UserSchema = new Schema(
     Email: String,
   },
   {
-    collection: "user",
+    collection: "users",
   }
 );
 
