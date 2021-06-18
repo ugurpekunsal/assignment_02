@@ -6,22 +6,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessDeletePage = exports.ProcessAddPage = exports.ProcessEditPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplayContactListPage = void 0;
 const contact_1 = __importDefault(require("../models/contact"));
 function DisplayContactListPage(req, res, next) {
-    contact_1.default.find((err, ContactCollection) => {
+    contact_1.default.find((err, contactCollection) => {
         if (err) {
             console.error(err);
             res.end(err);
         }
         res.render("index", {
             title: "Contact List",
-            page: "Contact-list",
-            Contact: ContactCollection,
+            page: "contact-list",
+            Contact: contactCollection,
         });
     });
 }
 exports.DisplayContactListPage = DisplayContactListPage;
 function DisplayEditPage(req, res, next) {
     let id = req.params.id;
-    contact_1.default.findById(id, {}, {}, (err, ContactItemToEdit) => {
+    contact_1.default.findById(id, {}, {}, (err, contactItemToEdit) => {
         if (err) {
             console.error(err);
             res.end(err);
@@ -29,13 +29,13 @@ function DisplayEditPage(req, res, next) {
         res.render("index", {
             title: "Edit",
             page: "update",
-            Contact: ContactItemToEdit,
+            contact: contactItemToEdit,
         });
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
 function DisplayAddPage(req, res, next) {
-    res.render("index", { title: "Add", page: "update", Contact: "" });
+    res.render("index", { title: "Add", page: "update", contact: "" });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function ProcessEditPage(req, res, next) {
@@ -54,7 +54,7 @@ function ProcessEditPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.redirect("/Contact-list");
+        res.redirect("/contact-list");
     });
 }
 exports.ProcessEditPage = ProcessEditPage;
@@ -72,7 +72,7 @@ function ProcessAddPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.redirect("/Contact-list");
+        res.redirect("/contact-list");
     });
 }
 exports.ProcessAddPage = ProcessAddPage;
@@ -83,7 +83,7 @@ function ProcessDeletePage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.redirect("/Contact-list");
+        res.redirect("/contact-list");
     });
 }
 exports.ProcessDeletePage = ProcessDeletePage;

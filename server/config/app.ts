@@ -5,8 +5,9 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
+// attach router
 import indexRouter from "../routes/index";
 import contactRouter from "../routes/contact";
 

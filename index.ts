@@ -9,7 +9,7 @@
 import createError from "http-errors";
 import app from "./server/config/app";
 import debug from "debug";
-debug("assignment01:server");
+debug("assignment02:server");
 import http from "http";
 
 /**

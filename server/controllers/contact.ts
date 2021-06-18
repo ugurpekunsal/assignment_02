@@ -12,8 +12,8 @@ export function DisplayContactListPage(
   res: Response,
   next: NextFunction
 ): void {
-  // db.Contact.find()
-  Contact.find((err, ContactCollection) => {
+  // db.contact.find()
+  Contact.find((err, contactCollection) => {
     if (err) {
       console.error(err);
       res.end(err);
@@ -21,8 +21,8 @@ export function DisplayContactListPage(
 
     res.render("index", {
       title: "Contact List",
-      page: "Contact-list",
-      Contact: ContactCollection,
+      page: "contact-list",
+      Contact: contactCollection,
     });
   });
 }
@@ -37,9 +37,9 @@ export function DisplayEditPage(
 
   // pass the id to the db
 
-  // db.Contact.find({"_id": id})
+  // db.contact.find({"_id": id})
 
-  Contact.findById(id, {}, {}, (err, ContactItemToEdit) => {
+  Contact.findById(id, {}, {}, (err, contactItemToEdit) => {
     if (err) {
       console.error(err);
       res.end(err);
@@ -49,7 +49,7 @@ export function DisplayEditPage(
     res.render("index", {
       title: "Edit",
       page: "update",
-      Contact: ContactItemToEdit,
+      contact: contactItemToEdit,
     });
   });
 }
@@ -61,7 +61,7 @@ export function DisplayAddPage(
   next: NextFunction
 ): void {
   // show the edit view
-  res.render("index", { title: "Add", page: "update", Contact: "" });
+  res.render("index", { title: "Add", page: "update", contact: "" });
 }
 
 // Process Functions
@@ -85,14 +85,14 @@ export function ProcessEditPage(
     price: req.body.price,
   });
 
-  // find the Contact item via db.Contact.update({"_id":id}) and then update
+  // find the contact item via db.contact.update({"_id":id}) and then update
   Contact.updateOne({ _id: id }, updatedContactItem, {}, (err) => {
     if (err) {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect("/Contact-list");
+    res.redirect("/contact-list");
   });
 }
 
@@ -112,14 +112,14 @@ export function ProcessAddPage(
     price: req.body.price,
   });
 
-  // db.Contact.insert({Contact data is here...})
+  // db.Contact.insert({contact data is here...})
   Contact.create(newContact, (err) => {
     if (err) {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect("/Contact-list");
+    res.redirect("/contact-list");
   });
 }
 
@@ -131,13 +131,13 @@ export function ProcessDeletePage(
 ): void {
   let id = req.params.id;
 
-  // db.Contact.remove({"_id: id"})
+  // db.contact.remove({"_id: id"})
   Contact.remove({ _id: id }, (err) => {
     if (err) {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect("/Contact-list");
+    res.redirect("/contact-list");
   });
 }
