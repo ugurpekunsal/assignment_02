@@ -1,35 +1,32 @@
-/*Assignment_01 - Ugur Pekunsal - 301158229 - 6/4/2021*/
+/*Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021*/
 
 import express from "express";
 const router = express.Router();
 export default router;
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Home", page: "home" });
-});
+// create an index controller instance
+import {
+  DisplayAboutPage,
+  DisplayContactPage,
+  DisplayHomePage,
+  DisplayProjectsPage,
+  DisplayServicesPage,
+} from "../controllers/index";
 
 /* GET home page. */
-router.get("/home", function (req, res, next) {
-  res.render("index", { title: "Home", page: "home" });
-});
+router.get("/", DisplayHomePage);
+
+/* GET home page. */
+router.get("/home", DisplayHomePage);
 
 /* GET about page. */
-router.get("/about", function (req, res, next) {
-  res.render("index", { title: "About Me", page: "about" });
-});
+router.get("/about", DisplayAboutPage);
 
 /* GET projects page. */
-router.get("/projects", function (req, res, next) {
-  res.render("index", { title: "My Projects", page: "projects" });
-});
+router.get("/projects", DisplayProjectsPage);
 
 /* GET services page. */
-router.get("/services", function (req, res, next) {
-  res.render("index", { title: "My Services", page: "services" });
-});
+router.get("/services", DisplayServicesPage);
 
 /* GET contact page. */
-router.get("/contact", function (req, res, next) {
-  res.render("index", { title: "Contact Me", page: "contact" });
-});
+router.get("/contact", DisplayContactPage);

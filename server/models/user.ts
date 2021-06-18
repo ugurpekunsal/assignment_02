@@ -1,3 +1,5 @@
+/*Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021*/
+
 import mongoose from "mongoose";
 const Schema = mongoose.Schema; // alias for the Mongoose Schema
 
