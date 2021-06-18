@@ -7,6 +7,14 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import mongoose, { mongo } from "mongoose";
 
+// modules for authentication
+import session from "express-session";
+import passport from "passport";
+import passportLocal from "passport-local";
+
+//authentication objects
+let localStrategy = passportLocal.Strategy; // alias
+
 // attach router
 import indexRouter from "../routes/index";
 import contactRouter from "../routes/contact";

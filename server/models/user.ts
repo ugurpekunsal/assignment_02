@@ -1,18 +1,38 @@
 /*Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021*/
 
-import mongoose from "mongoose";
+import mongoose, { PassportLocalSchema } from "mongoose";
 const Schema = mongoose.Schema; // alias for the Mongoose Schema
+import passportLocalMongoose from "passport-local-mongoose";
 
 const UserSchema = new Schema(
   {
-    Name: String,
-    Password: String,
-    Email: String,
+    username: String,
+    emailAddress: String,
+    displayName: String,
+    created: {
+      type: Date,
+      default: Date.now(),
+    },
+    updated: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
     collection: "users",
   }
 );
 
-const Model = mongoose.model("User", UserSchema);
+UserSchema.plugin(passportLocalMongoose);
+
+const Model = mongoose.model("User", UserSchema as PassportLocalSchema);
+
+declare global {
+  export type UserDocument = mongoose.Document & {
+    _id: String;
+    username: String;
+    emailAddress: String;
+    displayName: String;
+  };
+}
 export default Model;
