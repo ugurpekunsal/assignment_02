@@ -2,6 +2,11 @@
 
 import express, { Request, Response, NextFunction } from "express";
 
+import passport from "passport";
+
+// create an instance of the User model
+import User from "../models/user";
+
 export function DisplayHomePage(
   req: Request,
   res: Response,
@@ -41,3 +46,41 @@ export function DisplayContactPage(
 ): void {
   res.render("index", { title: "Contact Me", page: "contact" });
 }
+
+export function DisplayLoginPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  if (!req.user) {
+    res.render("index", {
+      title: "Login",
+      page: "login",
+      messages: req.flash("loginMessage"),
+    });
+  }
+}
+
+export function ProcessLoginPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {}
+
+export function DisplayRegisterPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {}
+
+export function ProcessRegisterPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {}
+
+export function ProcessLogoutPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {}
