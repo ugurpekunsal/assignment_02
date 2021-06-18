@@ -1,0 +1,30 @@
+<!--Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021-->
+
+<h1>Contacts List</h1>
+
+<div class="row">
+  <div class="col">
+    <!-- Table goes here -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">FullName</th>
+          <th scope="col">EmailAddress</th>
+          <th scope="col">ContactNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Repeatable Row Template -->
+        <% for(let count = 0; count < contacts.length; count++) { %>
+        <tr>
+          <th scope="row"><%= count +1 %></th>
+          <td><%= contacts[count].FullName %></td>
+          <td><%= contacts[count].EmailAddress %></td>
+          <td><%= contacts[count].ContactNumber %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
