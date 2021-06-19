@@ -12,6 +12,16 @@ function DisplayContactListPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
+        function compare(a, b) {
+            if (a.FullName < b.FullName) {
+                return -1;
+            }
+            if (a.FullName > b.FullName) {
+                return 1;
+            }
+            return 0;
+        }
+        contactCollection.sort(compare);
         res.render("index", {
             title: "Contact List",
             page: "contact-list",

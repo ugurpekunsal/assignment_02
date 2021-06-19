@@ -22,6 +22,18 @@ export function DisplayContactListPage(
       res.end(err);
     }
 
+    function compare(a: any, b: any) {
+      if (a.FullName < b.FullName) {
+        return -1;
+      }
+      if (a.FullName > b.FullName) {
+        return 1;
+      }
+      return 0;
+    }
+
+    contactCollection.sort(compare);
+
     res.render("index", {
       title: "Contact List",
       page: "contact-list",
