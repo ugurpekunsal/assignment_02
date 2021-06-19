@@ -1,6 +1,7 @@
 /*Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021*/
 
 import express from "express";
+
 const router = express.Router();
 export default router;
 

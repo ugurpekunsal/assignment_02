@@ -1,7 +1,6 @@
 /*Assignment_02 - Ugur Pekunsal - 301158229 - 6/18/2021*/
 
 import express, { Request, Response, NextFunction } from "express";
-
 import passport from "passport";
 
 // create an instance of the User model
@@ -174,6 +173,5 @@ export function ProcessLogoutPage(
   next: NextFunction
 ): void {
   req.logOut();
-
-  return res.redirect("login");
+  res.redirect("login");
 }

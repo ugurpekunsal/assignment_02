@@ -87,12 +87,9 @@ export function ProcessEditPage(
   // instantiate a new Contact Item
   let updatedContactItem = new Contact({
     _id: id,
-    name: req.body.name,
-    brand: req.body.brand,
-    category: req.body.category,
-    colour: req.body.colour,
-    size: req.body.size,
-    price: req.body.price,
+    FullName: req.body.FullName,
+    EmailAddress: req.body.EmailAddress,
+    ContactNumber: req.body.ContactNumber,
   });
 
   // find the contact item via db.contact.update({"_id":id}) and then update
@@ -114,12 +111,9 @@ export function ProcessAddPage(
 ): void {
   // instantiate a new Contact
   let newContact = new Contact({
-    name: req.body.name,
-    brand: req.body.brand,
-    category: req.body.category,
-    colour: req.body.colour,
-    size: req.body.size,
-    price: req.body.price,
+    FullName: req.body.FullName,
+    EmailAddress: req.body.EmailAddress,
+    ContactNumber: req.body.ContactNumber,
   });
 
   // db.Contact.insert({contact data is here...})
