@@ -7,12 +7,21 @@ import passport from "passport";
 // create an instance of the User model
 import User from "../models/user";
 
+// import Util functions
+import { UserDisplayName } from "../util";
+
+// Display Functions
+
 export function DisplayHomePage(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "Home", page: "home" });
+  res.render("index", {
+    title: "Home",
+    page: "home",
+    displayName: UserDisplayName(req),
+  });
 }
 
 export function DisplayAboutPage(
@@ -20,7 +29,11 @@ export function DisplayAboutPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "About Me", page: "about" });
+  res.render("index", {
+    title: "About Me",
+    page: "about",
+    displayName: UserDisplayName(req),
+  });
 }
 
 export function DisplayProjectsPage(
@@ -28,7 +41,11 @@ export function DisplayProjectsPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "My Projects", page: "projects" });
+  res.render("index", {
+    title: "My Projects",
+    page: "projects",
+    displayName: UserDisplayName(req),
+  });
 }
 
 export function DisplayServicesPage(
@@ -36,7 +53,11 @@ export function DisplayServicesPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "My Services", page: "services" });
+  res.render("index", {
+    title: "My Services",
+    page: "services",
+    displayName: UserDisplayName(req),
+  });
 }
 
 export function DisplayContactPage(
@@ -44,7 +65,11 @@ export function DisplayContactPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "Contact Me", page: "contact" });
+  res.render("index", {
+    title: "Contact Me",
+    page: "contact",
+    displayName: UserDisplayName(req),
+  });
 }
 
 export function DisplayLoginPage(
@@ -57,6 +82,7 @@ export function DisplayLoginPage(
       title: "Login",
       page: "login",
       messages: req.flash("loginMessage"),
+      displayName: UserDisplayName(req),
     });
   }
 
@@ -105,6 +131,7 @@ export function DisplayRegisterPage(
       title: "Register",
       page: "register",
       messages: req.flash("registerMessage"),
+      displayName: UserDisplayName(req),
     });
   }
 

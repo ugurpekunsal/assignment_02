@@ -4,6 +4,9 @@ import express, { Request, Response, NextFunction } from "express";
 
 import Contact from "../models/contact";
 
+// import Util Functions
+import { UserDisplayName } from "../util";
+
 // Display Functions
 
 //(R)ead in CRUD
@@ -23,6 +26,7 @@ export function DisplayContactListPage(
       title: "Contact List",
       page: "contact-list",
       Contact: contactCollection,
+      displayName: UserDisplayName(req),
     });
   });
 }
@@ -50,6 +54,7 @@ export function DisplayEditPage(
       title: "Edit",
       page: "update",
       contact: contactItemToEdit,
+      displayName: UserDisplayName(req),
     });
   });
 }
@@ -61,7 +66,12 @@ export function DisplayAddPage(
   next: NextFunction
 ): void {
   // show the edit view
-  res.render("index", { title: "Add", page: "update", contact: "" });
+  res.render("index", {
+    title: "Add",
+    page: "update",
+    contact: "",
+    displayName: UserDisplayName(req),
+  });
 }
 
 // Process Functions

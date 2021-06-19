@@ -6,24 +6,45 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../models/user"));
+const util_1 = require("../util");
 function DisplayHomePage(req, res, next) {
-    res.render("index", { title: "Home", page: "home" });
+    res.render("index", {
+        title: "Home",
+        page: "home",
+        displayName: util_1.UserDisplayName(req),
+    });
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayAboutPage(req, res, next) {
-    res.render("index", { title: "About Me", page: "about" });
+    res.render("index", {
+        title: "About Me",
+        page: "about",
+        displayName: util_1.UserDisplayName(req),
+    });
 }
 exports.DisplayAboutPage = DisplayAboutPage;
 function DisplayProjectsPage(req, res, next) {
-    res.render("index", { title: "My Projects", page: "projects" });
+    res.render("index", {
+        title: "My Projects",
+        page: "projects",
+        displayName: util_1.UserDisplayName(req),
+    });
 }
 exports.DisplayProjectsPage = DisplayProjectsPage;
 function DisplayServicesPage(req, res, next) {
-    res.render("index", { title: "My Services", page: "services" });
+    res.render("index", {
+        title: "My Services",
+        page: "services",
+        displayName: util_1.UserDisplayName(req),
+    });
 }
 exports.DisplayServicesPage = DisplayServicesPage;
 function DisplayContactPage(req, res, next) {
-    res.render("index", { title: "Contact Me", page: "contact" });
+    res.render("index", {
+        title: "Contact Me",
+        page: "contact",
+        displayName: util_1.UserDisplayName(req),
+    });
 }
 exports.DisplayContactPage = DisplayContactPage;
 function DisplayLoginPage(req, res, next) {
@@ -32,6 +53,7 @@ function DisplayLoginPage(req, res, next) {
             title: "Login",
             page: "login",
             messages: req.flash("loginMessage"),
+            displayName: util_1.UserDisplayName(req),
         });
     }
     return res.redirect("contact-list");
@@ -63,6 +85,7 @@ function DisplayRegisterPage(req, res, next) {
             title: "Register",
             page: "register",
             messages: req.flash("registerMessage"),
+            displayName: util_1.UserDisplayName(req),
         });
     }
     return res.redirect("contact-list");
