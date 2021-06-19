@@ -25,7 +25,7 @@ export function DisplayContactListPage(
     res.render("index", {
       title: "Contact List",
       page: "contact-list",
-      Contact: contactCollection,
+      contact: contactCollection,
       displayName: UserDisplayName(req),
     });
   });

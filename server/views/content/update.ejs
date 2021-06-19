@@ -1,0 +1,32 @@
+<div class="row justify-content-lg-center g-3">
+    <h1><%= title %> Contacts</h1>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Full Name</span>
+            <input type="text" class="form-control" placeholder="Enter full name" aria-label="Contact Full Name" aria-describedby="Contact Full Name"
+            name="FullName" value="<%= contact.FullName %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Email Address</span>
+            <input type="text" class="form-control" placeholder="Enter email address" aria-label="Email address" aria-describedby="Email address"
+            name="EmailAddress" value="<%= contact.EmailAddress %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Contact Number</span>
+            <input type="text" class="form-control" placeholder="Enter Contact Number" aria-label="Contact Number" aria-describedby="Contact Number"
+            name="ContactNumber" value="<%= contact.ContactNumber %>" required>
+        </div>
+
+            <% if(title == "Edit") { %>
+                <button type="submit" id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+            <% } else { %>
+                <button type="submit" id="addButton" class="btn btn-primary"><i class="fas fa-plus-circle fa-lg"></i> Add</button>
+            <% } %>  
+            
+            <a href="/contact-list" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
+        </div>
+    </form>
+</div>

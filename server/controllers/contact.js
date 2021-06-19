@@ -15,7 +15,7 @@ function DisplayContactListPage(req, res, next) {
         res.render("index", {
             title: "Contact List",
             page: "contact-list",
-            Contact: contactCollection,
+            contact: contactCollection,
             displayName: util_1.UserDisplayName(req),
         });
     });
